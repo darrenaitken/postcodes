@@ -11,10 +11,10 @@ import Logo from "../components/logo";
 // Component: App
 const App = () => {
   return (
-    <div className="container-content">
+    <>
       <Logo />
-      ABC
-    </div>
+      <div className="container-content">ABC</div>
+    </>
   );
 };
 
