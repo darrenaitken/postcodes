@@ -7,10 +7,7 @@ import "../styles/SearchField.css";
 const SearchField = (props) => {
 
     // PROPS
-    const {handleSearch} = props;
-
-    // REFS
-    const refSearchField = useRef()
+    const {handleSearch, refSearchField} = props;
 
     // Load: Simulates componentDidMount() method.
     // This will only run once - when the component has mounted

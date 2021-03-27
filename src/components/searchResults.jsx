@@ -1,5 +1,5 @@
 // Node Modules
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 
 // Services (Obtain Data etc)
 import svcPostcode from "../services/postcodeService";
@@ -13,25 +13,32 @@ import {toastError} from "../js/toast/toast";
 
 const SearchResults = () => {
 
+    // REFS
+    // This is so we know what the field value is
+    const refSearchField = useRef()
+
     // STATE
     // arrResult is an array of our search results
     const [state, setstate] = useState({
-        arrResults: [] 
+        arrResults: [],
+        showStartMessage: true,
+        lastSearch: ""
     });
 
     // EVENTS
     const handleSearch = async (e) => {
 
+        e.preventDefault();
+
         let arrResults;
+        const postcode = refSearchField.current.value
 
         try{
-            e.preventDefault();
-
             // Obtain all the postcode service data (dev only - we do not care about a particular one atm)
-            arrResults = await svcPostcode.getData();
+            arrResults = await svcPostcode.getData(postcode);
     
             // Update the state an re-render the HTML
-            setstate({arrResults})
+            setstate({arrResults, showStartMessage: false, lastSearch: postcode})
         }
         catch(err){
             console.log(err)
@@ -43,9 +50,12 @@ const SearchResults = () => {
     return (
     <div className="container-content">
         <SearchField 
-        handleSearch={handleSearch}/>
+            refSearchField = {refSearchField}
+            handleSearch={handleSearch}/>
         <ResultsTable
-        arrResults={state.arrResults}
+            arrResults={state.arrResults}
+            showStartMessage={state.showStartMessage}
+            lastSearch={state.lastSearch}
         />
       </div>
     )
