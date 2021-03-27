@@ -16,12 +16,6 @@ const ResultsSection = (props) => {
     if(showStartMessage || lastSearch === ""){
         return (<div className="results-message">Welcome!<br/>Type a post code into the field above<br/>Example: E8 3DB</div>)
     }
-
-    if(arrResults.length > 0) {
-        for(const item in arrResults[0]){
-            console.log(item, arrResults[0][item])
-        }
-    }
     
     // Results
     return (
@@ -29,8 +23,9 @@ const ResultsSection = (props) => {
         <div className="results-message">oops! We couldn't find '{lastSearch}'<br/>Try again...</div> : 
         <div className="results-flexbox">
         {
-            Object.keys(arrResults[0]).map((key) => {
+            Object.keys(arrResults[0]).map((key, i) => {
                 return <Slicer
+                key={i}
                 keyname={key}
                 keyvalue={arrResults[0][key]}
                 />

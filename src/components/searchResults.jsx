@@ -21,7 +21,6 @@ const SearchResults = () => {
     // arrResult is an array of our search results
     const [state, setstate] = useState({
         arrResults: [],
-        searchValue: "",
         showStartMessage: true,
         lastSearch: ""
     });
@@ -39,7 +38,7 @@ const SearchResults = () => {
             arrResults = await svcPostcode.getData(postcode);
     
             // Update the state an re-render the HTML
-            setstate({arrResults, searchValue: "", showStartMessage: false, lastSearch: postcode})
+            setstate({arrResults, showStartMessage: false, lastSearch: postcode})
 
         }
         catch(err){
