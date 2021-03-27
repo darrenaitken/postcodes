@@ -10,4 +10,6 @@ export async function getData(postcode) {
   return results.data;
 }
 
-export default getData;
+export default {
+  getData,
+};
