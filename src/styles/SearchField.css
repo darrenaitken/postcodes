@@ -1,12 +1,23 @@
 .container-searchfield {
+  display: flex;
   background-color: var(--container-search-bg-color);
   border-radius: 5px;
   padding: 0.5rem;
+  justify-content: center;
 }
 
 .search-field {
   height: 2rem;
   border-radius: 5px;
-  border: 1px solid black;
-  margin-left: 10px;
+  border: 1px solid var(--searchfield-border-color);
+  width: 200px;
+  text-align: center;
+}
+
+#btnSearch {
+  background-color: var(--searchbutton-bg-color);
+  border: none;
+  width: 50px;
+  border-radius: 5px;
+  margin-left: 5px;
 }

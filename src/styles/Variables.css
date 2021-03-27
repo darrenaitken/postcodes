@@ -1,5 +1,7 @@
 :root {
   --empty-space-bg-color: #f8f8f8;
   --container-content-bg-color: #ffffff;
-  --container-search-bg-color: #d14a906e;
+  --container-search-bg-color: #f89a48b8;
+  --searchfield-border-color: #f89948;
+  --searchbutton-bg-color: #fc8925;
 }
