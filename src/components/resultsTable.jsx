@@ -2,7 +2,7 @@
 import React from "react"
 
 //  CSS
-
+import "../styles/ResultsTable.css"
 
 
 
@@ -12,7 +12,12 @@ const ResultsTable = (props) => {
 
 
     return (
-        <h1>{arrResults[0].id}</h1>
+        <>
+        {arrResults.length === 0 ? 
+            <div className="intro-message">Welcome!<br/>Type a post code into the field above</div> :
+            arrResults[0].id
+        }
+        </>
     )
 }
 
