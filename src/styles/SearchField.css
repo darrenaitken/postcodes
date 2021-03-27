@@ -12,6 +12,7 @@
   border: 1px solid var(--searchfield-border-color);
   width: 200px;
   text-align: center;
+  font-size: 1rem;
 }
 
 #btnSearch {
@@ -20,4 +21,9 @@
   width: 50px;
   border-radius: 5px;
   margin-left: 5px;
+}
+
+.search-field:focus,
+#btnSearch:focus {
+  outline: none;
 }
