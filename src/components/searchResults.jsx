@@ -6,7 +6,7 @@ import svcPostcode from "../services/postcodeService";
 
 // Components
 import SearchField from "./searchField";
-import ResultsTable from "./resultsTable";
+import ResultsSection from "./resultsSection";
 
 // Custom Modules
 import {toastError} from "../js/toast/toast";
@@ -21,6 +21,7 @@ const SearchResults = () => {
     // arrResult is an array of our search results
     const [state, setstate] = useState({
         arrResults: [],
+        searchValue: "",
         showStartMessage: true,
         lastSearch: ""
     });
@@ -38,7 +39,8 @@ const SearchResults = () => {
             arrResults = await svcPostcode.getData(postcode);
     
             // Update the state an re-render the HTML
-            setstate({arrResults, showStartMessage: false, lastSearch: postcode})
+            setstate({arrResults, searchValue: "", showStartMessage: false, lastSearch: postcode})
+
         }
         catch(err){
             console.log(err)
@@ -51,8 +53,9 @@ const SearchResults = () => {
     <div className="container-content">
         <SearchField 
             refSearchField = {refSearchField}
-            handleSearch={handleSearch}/>
-        <ResultsTable
+            handleSearch={handleSearch}
+            searchValue={state.searchValue}/>
+        <ResultsSection
             arrResults={state.arrResults}
             showStartMessage={state.showStartMessage}
             lastSearch={state.lastSearch}

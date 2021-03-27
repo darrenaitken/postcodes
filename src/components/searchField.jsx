@@ -1,5 +1,5 @@
 // Node Modules
-import React, {useEffect, useRef} from "react";
+import React, {useEffect} from "react";
 
 // CSS
 import "../styles/SearchField.css";
@@ -7,14 +7,13 @@ import "../styles/SearchField.css";
 const SearchField = (props) => {
 
     // PROPS
-    const {handleSearch, refSearchField} = props;
+    const {handleSearch, refSearchField, searchValue} = props;
 
     // Load: Simulates componentDidMount() method.
     // This will only run once - when the component has mounted
     useEffect(() => {
         refSearchField.current.focus();
     },[])
-
 
     return (
         <div className="container-searchfield">
