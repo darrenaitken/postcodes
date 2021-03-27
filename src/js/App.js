@@ -1,5 +1,6 @@
 // Node Modules
 import React from "react";
+import { ToastContainer } from "react-toastify";
 
 // CSS
 import "../styles/Variables.css";
@@ -7,16 +8,15 @@ import "../styles/App.css";
 
 // Components
 import Logo from "../components/logo";
-import SearchField from "../components/searchField";
+import SearchResults from "../components/searchResults";
 
 // Component: App
 const App = () => {
   return (
     <>
+      <ToastContainer />
       <Logo />
-      <div className="container-content">
-        <SearchField />
-      </div>
+      <SearchResults />
     </>
   );
 };

@@ -4,8 +4,12 @@ import React, {useEffect, useRef} from "react";
 // CSS
 import "../styles/SearchField.css";
 
-const SearchField = () => {
+const SearchField = (props) => {
 
+    // PROPS
+    const {handleSearch} = props;
+
+    // REFS
     const refSearchField = useRef()
 
     // Load: Simulates componentDidMount() method.
@@ -17,6 +21,7 @@ const SearchField = () => {
 
     return (
         <div className="container-searchfield">
+            <form>
                 <input id="searchField" 
                 ref={refSearchField}
                         className="search-field" 
@@ -25,9 +30,10 @@ const SearchField = () => {
                         minLength="3" 
                         maxLength="8" 
                         tabIndex="1" 
-                        required></input>
-                <button id="btnSearch" type="submit"><i className="fa fa-search"></i></button>
-
+                        required
+                        ></input>
+                <button id="btnSearch" type="submit" onClick={handleSearch}><i className="fa fa-search"></i></button>
+            </form>
         </div>
     )
 }

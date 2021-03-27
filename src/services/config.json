@@ -1,0 +1,5 @@
+{
+    "apiBaseURL": "http://localhost:3030",
+    "apiLocationURL": "/locations",
+    "apiWeatherURL": "/weather"  
+  }

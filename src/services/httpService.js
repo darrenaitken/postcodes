@@ -4,16 +4,20 @@ import axios from "axios";
 
 // Custom Modules
 import { toastError } from "../js/toast/toast";
+import { apiBaseURL } from "./config.json";
 
 // This is our authorisation token name (in config file)
 //  import { apiAuthToken } from "./config.json";
+
+// DEMO PURPOSES ONLY: I've commented our these lines so it gets the config data from config.json instead rather
+//                    than setting environment variables, etc
 
 // This will use the REACT_APP_API_URL value specified in either:
 // .env
 // .env.production
 // .env.development
 // ...
-axios.defaults.baseURL = process.env.API_URL;
+axios.defaults.baseURL = apiBaseURL;
 
 // This needs to be set so secure HTTP only cookies can be sent and received
 // (NodeJS CORS middleware also needs to allow access)
