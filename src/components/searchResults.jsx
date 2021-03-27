@@ -1,11 +1,12 @@
 // Node Modules
-import React from "react";
+import React, {useState} from "react";
 
 // Services (Obtain Data etc)
-import svcPostcode from "../services/postcodeService"
+import svcPostcode from "../services/postcodeService";
 
 // Components
-import SearchField from "./searchField"
+import SearchField from "./searchField";
+import ResultsTable from "./resultsTable";
 
 // Custom Modules
 import {toastError} from "../js/toast/toast";
@@ -13,9 +14,10 @@ import {toastError} from "../js/toast/toast";
 const SearchResults = () => {
 
     // STATE
-    // const [state, setstate] = useState({
-    //     results: []
-    // });
+    // arrResult is an array of our search results
+    const [state, setstate] = useState({
+        arrResults: [] 
+    });
 
     // EVENTS
     const handleSearch = async (e) => {
@@ -28,7 +30,8 @@ const SearchResults = () => {
             // Obtain all the postcode service data (dev only - we do not care about a particular one atm)
             arrResults = await svcPostcode.getData();
     
-            console.log(arrResults)
+            // Update the state an re-render the HTML
+            setstate({arrResults})
         }
         catch(err){
             console.log(err)
@@ -41,6 +44,9 @@ const SearchResults = () => {
     <div className="container-content">
         <SearchField 
         handleSearch={handleSearch}/>
+        <ResultsTable
+        arrResults={state.arrResults}
+        />
       </div>
     )
 }
